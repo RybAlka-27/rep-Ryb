@@ -1,0 +1,1 @@
+pyuic5 -x dbBasket.ui -o dbBasket.py

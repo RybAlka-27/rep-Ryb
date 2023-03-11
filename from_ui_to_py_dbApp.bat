@@ -1,0 +1,1 @@
+pyuic5 -x dbApp.ui -o dbApp.py

@@ -1,0 +1,1 @@
+pyuic5 -x dbconnection.ui -o dbconnection.py

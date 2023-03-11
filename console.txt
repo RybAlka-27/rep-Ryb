@@ -1,0 +1,44 @@
+--Transaction
+BEGIN;
+UPDATE "Store".customer SET wallet = (wallet - 1000) where id = 1;
+UPDATE "Store".customer SET wallet = (wallet + 1000) where id = 2;
+END;
+
+--roles
+CREATE USER administrator WITH ENCRYPTED PASSWORD 'admin';
+CREATE USER employee WITH  ENCRYPTED PASSWORD 'user';
+
+GRANT ALL PRIVILEGES ON DATABASE postgres to administrator;
+GRANT SELECT ON ALL TABLES IN SCHEMA "Store" to employee;
+GRANT ALL PRIVILEGES ON postgres."Store".product, postgres."Store".customer TO employee;
+GRANT USAGE, SELECT ON SEQUENCE "Store".product_id_seq, "Store".customer_id_seq, "Store".order_id_seq TO employee;
+
+
+--view
+CREATE VIEW get_all_products AS
+    SELECT product.name as producct_name, w.name as warehouse_name FROM "Store".product as product
+    JOIN "Store".warehouse_product as wp ON product.id = wp.product_id
+    JOIN "Store".warehouse as w ON wp.warehouse_id = w.id;
+
+
+--function
+CREATE FUNCTION get_profit() returns money
+LANGUAGE sql
+AS
+$$
+SELECT sum(price)
+    from "Store".product;
+$$;
+
+--Trigger
+CREATE OR REPLACE FUNCTION update_prize() returns trigger as
+    $$
+    BEGIN
+        NEW.price = NEW.price + CAST(500 as money);
+        return NEW;
+    END
+    $$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER update_prize_trigger
+    BEFORE INSERT ON "Store".product FOR EACH ROW EXECUTE PROCEDURE update_prize()

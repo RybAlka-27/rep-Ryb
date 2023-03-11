@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Автомагазин</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="get_Data">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вывести</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add_Data">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_Data">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Удалить</string>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>600</width>
+      <height>500</height>
+     </rect>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>180</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="currentText">
+     <string notr="true">customer</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>customer</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>cheque</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>operator</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>order</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>order_product</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>product</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>supplier</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>warehouse</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>warehouse_product</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>category</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>50</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>На счету</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="account">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>240</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="toBasket">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>В корзину</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="loginMenu"/>
+    <addaction name="basketMenu"/>
+    <addaction name="customerMenu"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <action name="action">
+   <property name="text">
+    <string>Подключиться</string>
+   </property>
+  </action>
+  <action name="loginMenu">
+   <property name="text">
+    <string>Подключиться</string>
+   </property>
+  </action>
+  <action name="basketMenu">
+   <property name="text">
+    <string>Корзина</string>
+   </property>
+  </action>
+  <action name="customerMenu">
+   <property name="text">
+    <string>Новый покупатель</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

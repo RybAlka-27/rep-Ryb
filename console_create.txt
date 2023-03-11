@@ -1,0 +1,73 @@
+create table "Store".customer(
+    id serial primary key,
+    name varchar(100),
+    address varchar(100),
+    phone varchar(15),
+    email varchar(100)
+);
+
+create table "Store".supplier(
+    id serial primary key,
+    name varchar(100),
+    address varchar(100),
+    phone varchar(15),
+    email varchar(100)
+);
+
+create table "Store".operator(
+    id serial primary key,
+    name varchar(100),
+    surname varchar(100),
+    phone varchar(15),
+    email varchar(100),
+    position varchar(50)
+);
+
+create table "Store".warehouse(
+    id serial primary key,
+    name varchar(100),
+    address varchar(100)
+);
+
+create table "Store".category(
+    id serial primary key,
+    name varchar(100),
+    description varchar(1000)
+);
+
+create table "Store".product(
+    id serial primary key,
+    name varchar(100),
+    description varchar(1000),
+    price money,
+    series integer,
+    supplier_id integer references "Store".supplier(id),
+    category_id integer references "Store".category(id)
+);
+
+create table "Store".order(
+    id serial primary key,
+    customer_id integer references "Store".customer(id)
+);
+
+create table "Store".order_product(
+    order_id integer references "Store".order(id),
+    product_id integer references "Store".product(id)
+);
+
+create table "Store".warehouse_product(
+    product_id integer references "Store".product(id),
+    warehouse_id integer references "Store".warehouse(id)
+);
+
+create table "Store".cheque(
+    id serial primary key,
+    operator_id integer references "Store".operator(id),
+    order_id integer  references "Store".order(id),
+    date date,
+    time time,
+    validity date,
+    price money,
+    discount money,
+    final_price money
+);

@@ -1,0 +1,55 @@
+insert into "Store".order_product(order_id, product_id)
+values (1, 1), (2, 3);
+
+insert into "Store".warehouse_product(product_id, warehouse_id)
+values (1, 1), (2, 2), (3, 1), (4, 2), (5, 1);
+
+insert into "Store"."order"(customer_id)
+values (2), (3), (4);
+
+insert into "Store".cheque(operator_id, order_id, date, time, validity, price, discount, final_price)
+values
+(1, 1, '1999-01-08', '04:05:06', '2020-01-08', 0, 100, 0),
+(2, 2, '2000-05-07', '23:05:30', '2010-05-07', 0, 100, 0),
+(3, 3, '2001-01-10', '14:25:06', '2020-03-10', 0, 100, 0);
+
+insert into "Store".category(name, description)
+values
+('Двигатель', 'v12'),
+('Двигатель', 'v6'),
+('Двигатель', '2jz'),
+('Двигатель', 'VR38DETT'),
+('Свечи', 'V-LINE');
+
+
+insert into "Store".operator(name, surname, phone, email, position)
+values
+('Петр', 'Иванов', '7(495)457-25-32', 'nellettaris-0227@yopmail.com', 'Консультан'),
+('Алексей', 'Патрушев', '7(495)395-78-47', 'ikypommu-0927@yopmail.com', 'Кассир'),
+('Иван', 'Петров', '7(495)745-64-19', 'busezeti-8066@yopmail.com', 'Кассир');
+
+insert into "Store".warehouse(name, address)
+values
+('wh-1', 'ул. Зацепский Вал 6'),
+('wh-2', ' ул. Лидинская 7');
+
+insert into "Store".supplier(name, address, phone, email)
+values
+('Germany', 'Berlin', '49(37)188-29-27', 'xafussojimma-8118@yopmail.com'),
+('Japan', 'Tokyo', '81(48)962-63-05', 'fuwewepu-0922@yopmail.com');
+
+insert into "Store".product(name, description, price, supplier_id, category_id, count)
+values
+('Audi', 'RS6', 6000, 1, 1, 1),
+('Mercedes_Benz', 'Maybach', 200, 1, 2, 4),
+('Suzuki', 'sx4', 2500, 2, 3, 5),
+('Honda', 'Civic', 1000, 2, 5,  2),
+('Nissan', 'GT-R', 5000, 2, 4, 7);
+
+SET lc_monetary TO "en_US.UTF-8";
+
+insert into "Store".product(name, description, price, supplier_id, category_id, count)
+values
+('Toyota', 'Supra', 1000, 1, 4, 1);
+
+SELECT "Store".get_profit();
